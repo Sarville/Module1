@@ -20,14 +20,14 @@
 }
 
 {
-  const productName = prompt('Наименование товара');
-  const productCategory = prompt('Категория товара');
-  const productCost = Number(prompt('Цена товара'));
-  const productQuantity = prompt('Количество товара');
+  const productName = prompt('Наименование товара', 'Сахар');
+  const productCategory = prompt('Категория товара', 'Бакалея');
+  const productCost = +prompt('Цена товара', 90);
+  const productQuantity = +prompt('Количество товара', 10);
 
-  console.log(typeof productName);
-  console.log(typeof productCategory);
-  console.log(typeof productCost);
-  console.log(typeof productQuantity);
+  console.log('productName:', typeof productName);
+  console.log('productCategory:', typeof productCategory);
+  console.log('productCost:', typeof productCost);
+  console.log('productQuantity:', typeof productQuantity);
   console.log(`На складе ${productQuantity} единицы товара "${productName}" на сумму ${productCost * productQuantity} тугриков`);
 }
