@@ -29,6 +29,5 @@
   console.log(typeof productCategory);
   console.log(typeof productCost);
   console.log(typeof productQuantity);
-  console.log(`На складе ${productQuantity} единицы товара "${productName}" на сумму 
-  ${productCost * productQuantity} тугриков`);
+  console.log(`На складе ${productQuantity} единицы товара "${productName}" на сумму ${productCost * productQuantity} тугриков`);
 }
