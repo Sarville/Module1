@@ -25,9 +25,8 @@
   const productCost = +prompt('Цена товара', 90);
   const productQuantity = +prompt('Количество товара', 10);
 
-  console.log('productName:', typeof productName);
-  console.log('productCategory:', typeof productCategory);
-  console.log('productCost:', typeof productCost);
-  console.log('productQuantity:', typeof productQuantity);
-  console.log(`На складе ${productQuantity} единицы товара "${productName}" на сумму ${productCost * productQuantity} тугриков`);
-}
+  if (typeof productCost === Number && typeof productQuantity === Number) {
+   console.log(`На складе ${productQuantity} единицы товара "${productName}" на сумму ${productCost * productQuantity} тугриков`);
+}  else
+console.log('Вы ввели некорректные данные');
+  }

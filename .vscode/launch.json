@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "type": "chrome",
+      "name": "localhost:5550",
+      "request": "launch",
+      "url": "http://127.0.0.1:5500/topic3/index.html
+    }
+  ]
+}
