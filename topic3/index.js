@@ -25,8 +25,8 @@
   const productCost = +prompt('Цена товара', 90);
   const productQuantity = +prompt('Количество товара', 10);
 
-  if (typeof productCost === Number && typeof productQuantity === Number) {
-   console.log(`На складе ${productQuantity} единицы товара "${productName}" на сумму ${productCost * productQuantity} тугриков`);
+  if (!Number.isNaN(productCost) && !Number.isNaN(productQuantity)) {
+   console.log(`На складе ${productQuantity} шт товара "${productName}" на сумму ${productCost * productQuantity} тугриков`);
 }  else
 console.log('Вы ввели некорректные данные');
   }
