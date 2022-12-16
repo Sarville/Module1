@@ -10,12 +10,12 @@
 }
 
 {
-  const scoreMath = +prompt('Введите кол-во баллов по математике:', 85);
-  const scoreRus = +prompt('Введите кол-во баллов по русскому языку:', 75);
+  const scoreMath = +prompt('Введите кол-во баллов по математике:', 92);
+  const scoreRus = +prompt('Введите кол-во баллов по русскому языку:', 78);
   const scoreInfo = +prompt('Введите кол-во баллов по информатике:', 95);
 
   if (scoreMath + scoreRus + scoreInfo >= 265) {
-    alert('Поздравляю, вы поступили на бюджет!');
+    console.log('Поздравляю, вы поступили на бюджет!');
   }
 }
 
