@@ -7,7 +7,7 @@ let getAverageValue = (arr) => {
   for (let check of arr) {
     sum += check;
   }
-  return sum / arr.length;
+  return Math.floor (sum / arr.length);
 }
 
 console.log(getAverageValue(allCashbox));
