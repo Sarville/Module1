@@ -4,8 +4,11 @@
   let botNumber = Math.round(Math.random() * 9 + 1);
 
   let userNumber = prompt('Угадай число');
+  if (userNumber === null) {
+    alert('Вы отменили игру');
+  } else {
     do {
-      while ((Number.isNaN(+userNumber)) || (userNumber === '')) {
+      while ((Number.isNaN(+userNumber)) || !(userNumber.trim().length)) {
         userNumber = prompt('Введите число!');
       }
       if (userNumber === null) break;
@@ -17,4 +20,5 @@
     } while (+userNumber !== botNumber);
 
     (userNumber !== null) ? alert('Угадали!') : alert('Вы отменили игру');
+  }
 }

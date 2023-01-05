@@ -3,13 +3,19 @@
 {
   let m, n = new Number;
   m = prompt('Введите первое число', 20);
-  while ((Number.isNaN(+m)) || (m === '')) {
-    m = prompt('Введите число!');
+  if (m !== null) {
+    while ((Number.isNaN(+m)) || !(m.trim().length)) {
+      m = prompt('Введите число!');
+      if (m === null) break;
+    }
   }
   if (m !== null) {
     n = prompt('Введите второе число', 100);
-    while ((Number.isNaN(+n)) || (n === '')) {
-      n = prompt('Введите число!');
+    if (n !== null) {
+      while ((Number.isNaN(+n)) || !(n.trim().length)) {
+        n = prompt('Введите число!');
+        if (n === null) break;
+      }
     }
   }
   
@@ -20,10 +26,11 @@
   let userNumber = prompt(`Угадайте число. У вас ${attempts} попыток`);
   attempts -= 1;
     while ((+userNumber !== botNumber) && (attempts !== 0)) {
-      while ((Number.isNaN(+userNumber)) || (userNumber === '')) {
+      if (userNumber === null) break;
+      while ((Number.isNaN(+userNumber)) || !(userNumber.trim().length)) {
         userNumber = prompt('Введите число!');
       }
-      if (userNumber === null) break;
+      
 
       if (listNumbers.some((item) => item === userNumber)) {
         userNumber = prompt(`Это число вы уже вводили. Осталось ${attempts + 1} попыток`);
