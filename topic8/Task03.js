@@ -8,15 +8,16 @@
 
   let randomize = (length, m1, n1, param) => {
     let randomArray =[];
+    let randomNumber = () => Math.round(Math.random() * (Math.max(m1, n1) - Math.min(m1, n1)) + Math.min(m1, n1));
     for (let i = 0; i < length; i++) {
-      let item = Math.round(Math.random() * (Math.max(m1, n1) - Math.min(m1, n1)) + Math.min(m1, n1));
+      let item = randomNumber();
       if (param === 'even') {
         while (item % 2 !== 0) {
-          item = Math.round(Math.random() * (Math.max(m1, n1) - Math.min(m1, n1)) + Math.min(m1, n1));
+          item = randomNumber();
         }
       } else if (param === 'odd') {
         while (item % 2 === 0) {
-          item = Math.round(Math.random() * (Math.max(m1, n1) - Math.min(m1, n1)) + Math.min(m1, n1));
+          item = randomNumber();
         }
       }
       randomArray.push(item);
