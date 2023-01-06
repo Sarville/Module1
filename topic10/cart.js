@@ -2,11 +2,11 @@
 {
  let cart = {
   items: [],
-  totalPrice: 0,
+  get totalPrice() {
+    return this.calculateItemPrice();
+  },
   count: 0,
   
-  getTotalPrice() {return this.totalPrice},
-
   add(name, price, qty) {
     this.items.push({name: name, price: price, qty: qty ?? 1});
     this.increaseCount(qty ?? 1);
@@ -16,8 +16,9 @@
   increaseCount(q) {this.count += q},
 
   calculateItemPrice() {
-    this.totalPrice = 0;
-    this.items.forEach((item) => {this.totalPrice += item.price * item.qty});
+    let totalPrice = 0;
+    this.items.forEach((item) => {totalPrice += item.price * item.qty});
+    return totalPrice;
   },
 
   clear() {
@@ -28,7 +29,7 @@
 
   print() {
     console.log(JSON.stringify(this.items));
-    console.log(this.getTotalPrice());
+    console.log(this.totalPrice);
   },
  }
  cart.add('apple', 100);
