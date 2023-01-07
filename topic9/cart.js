@@ -7,9 +7,9 @@
   
   getTotalPrice() {return this.totalPrice},
 
-  add(name, price, qty) {
-    this.items.push({name: name, price: price, qty: qty ?? 1});
-    this.increaseCount(qty ?? 1);
+  add(name, price, qty = 1) {
+    this.items.push({name, price, qty});
+    this.increaseCount(qty);
     this.calculateItemPrice();
   },
 
