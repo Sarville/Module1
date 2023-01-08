@@ -1,47 +1,52 @@
 'use strict';
 {
- let cart = {
-  items: [],
-  totalPrice: 0,
-  count: 0,
-  
-  getTotalPrice() {return this.totalPrice},
+  const cart = {
+    items: [],
+    totalPrice: 0,
+    count: 0,
 
-  add(name, price, qty = 1) {
-    this.items.push({name, price, qty});
-    this.increaseCount(qty);
-    this.calculateItemPrice();
-  },
+    getTotalPrice() {
+      return this.totalPrice;
+    },
 
-  increaseCount(q) {this.count += q},
+    add(name, price, qty = 1) {
+      this.items.push({name, price, qty});
+      this.increaseCount(qty);
+      this.calculateItemPrice();
+    },
 
-  calculateItemPrice() {
-    this.totalPrice = 0;
-    this.items.forEach((item) => {this.totalPrice += item.price * item.qty});
-  },
+    increaseCount(q) {
+      this.count += q;
+    },
 
-  clear() {
-    this.items = [];
-    this.totalPrice = 0;
-    this.count = 0;
-  },
+    calculateItemPrice() {
+      this.totalPrice = 0;
+      this.items.forEach((item) => {
+        this.totalPrice += item.price * item.qty;
+      });
+    },
 
-  print() {
-    console.log(JSON.stringify(this.items));
-    console.log(this.getTotalPrice());
-  },
- }
- cart.add('apple', 100);
- cart.add('coca-cola', 200, 5);
- cart.add('tea', 50, 1);
+    clear() {
+      this.items = [];
+      this.totalPrice = 0;
+      this.count = 0;
+    },
 
- cart.print();
+    print() {
+      console.log(JSON.stringify(this.items));
+      console.log(this.getTotalPrice());
+    },
+  };
+  cart.add('apple', 100);
+  cart.add('coca-cola', 200, 5);
+  cart.add('tea', 50, 1);
 
-//  проверка других методов
+  cart.print();
 
-//  cart.increaseCount(10);
-//  console.log(cart.count);
-//  cart.clear();
-//  console.log(cart);
+  //  проверка других методов
 
+  //  cart.increaseCount(10);
+  //  console.log(cart.count);
+  //  cart.clear();
+  //  console.log(cart);
 }
