@@ -6,14 +6,14 @@
     height: 5,
     set setWidth(x) {
       if (!(x === null)) {
-        if (!Number.isNaN(+x) && !(x.trim().length)) {
+        if (!Number.isNaN(+x) && (x.trim().length)) {
           this.width = +x;
         } else alert('Ввели не число');
       } else console.log('Нажали Отмена');
     },
     set setHeight(y) {
       if (!(y === null)) {
-        if (!Number.isNaN(+y) && !(y.trim().length)) {
+        if (!Number.isNaN(+y) && (y.trim().length)) {
           this.height = +y;
         } else alert('Ввели не число');
       } else console.log('Нажали Отмена');
