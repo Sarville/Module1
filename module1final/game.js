@@ -43,27 +43,31 @@
     return lang.figures.indexOf(figure[0]);
   };
 
-
-  const startRPS = () => {
-    const lang = ruLang;
-    const ask = prompt(lang.phrase.start);
-    if (ask !== null) {
-      if (ask.trim().length) {
-        const playerFigure = getFigure(lang, ask);
-        if (playerFigure !== -1) {
-          const computerFigure = Math.round(Math.random() * 2);
-          const match = lang.rules[playerFigure][computerFigure];
-          alert(`${lang.phrase.computer}: ${lang.figures[computerFigure]}
+  const rps = () => {
+    let playerTurn = true;
+    const startRPS = () => {
+      const lang = ruLang;
+      const ask = prompt(lang.phrase.start);
+      if (ask !== null) {
+        if (ask.trim().length) {
+          const playerFigure = getFigure(lang, ask);
+          if (playerFigure !== -1) {
+            const computerFigure = Math.round(Math.random() * 2);
+            const match = lang.rules[playerFigure][computerFigure];
+            alert(`${lang.phrase.computer}: ${lang.figures[computerFigure]}
 ${lang.phrase.player}: ${lang.figures[playerFigure]}\n\n${match}`);
-          if (match === lang.win) return true;
-          if (match === lang.loose) return false;
-          if (match === lang.draw) startRPS();
+            if (match === lang.win) playerTurn = true;
+            if (match === lang.loose) playerTurn = false;
+            if (match === lang.draw) startRPS();
+          } else startRPS();
         } else startRPS();
-      } else startRPS();
-    } else {
-      alert('Вы отказались от розыгрыша. Ходит Бот');
-      return false;
-    }
+      } else {
+        alert('Вы отказались от розыгрыша. Ходит Бот');
+        playerTurn = false;
+      }
+    };
+    startRPS();
+    return playerTurn;
   };
 
   const game = () => {
@@ -81,7 +85,7 @@ ${lang.phrase.player}: ${lang.figures[playerFigure]}\n\n${match}`);
           start();
         }
       };
-      const turn = bot === undefined ? startRPS() : bot;
+      const turn = bot === undefined ? rps() : bot;
       if (turn) { // Ход игрока
         const botAnswer = Math.round(Math.random()) ? 'Нечётное' : 'Чётное';
         const ask = prompt(`Введите количество шариков:\nУ Игрока: ${marblesCount.player}\nУ Бота: ${marblesCount.bot}`);
